@@ -12,6 +12,10 @@
  * @package         seo_import_export
  */
 
+if( defined( 'WP_CLI') && WP_CLI ){
+    require_once( plugin_dir_path( __FILE__ ) . 'lib/fns/import-export-commands.php' );
+}
+
 // Initialize Plugin Updates
 require_once ( plugin_dir_path( __FILE__ ) . 'lib/classes/plugin-updater.php' );
 if( is_admin() ){
