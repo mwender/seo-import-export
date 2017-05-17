@@ -1,6 +1,7 @@
 <?php
+namespace UpdateFromGithub\updater;
 
-class CxpGitHubPluginUpdater {
+class GitHub_Plugin_Updater {
 
     private $slug;
 
@@ -159,8 +160,8 @@ class CxpGitHubPluginUpdater {
         // Create tabs in the lightbox
         $response->sections = array(
           'Description'   => $this->pluginData["Description"],
-          'changelog'   => class_exists( "Parsedown" )
-            ? Parsedown::instance()->parse( $this->githubAPIResult->body )
+          'changelog'   => class_exists( "\\UpdateFromGithub\\parsedown\\Parsedown" )
+            ? \UpdateFromGithub\parsedown\Parsedown::instance()->parse( $this->githubAPIResult->body )
             : $this->githubAPIResult->body
         );
 

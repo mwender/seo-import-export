@@ -20,5 +20,8 @@ Whenever I code a plugin for my clients, and it's going to be hosted on Github, 
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* Adding namespacing.
+
+= 1.0.0 =
 * Initial release.

@@ -1,4 +1,5 @@
 <?php
+namespace UpdateFromGithub\parsedown;
 
 #
 #

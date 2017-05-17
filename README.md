@@ -11,7 +11,7 @@ A WordPress plugin boiler plate with built-in updating from Github.
 
 ## Description ##
 
-Whenever I code a plugin for my clients, and it's going to be hosted on Github, I use this boilerplate to build a plugin that will update via the built-in update system inside WordPress. Anytime I publish a new release to the Github repo for the plugin, this plugin will alert WordPress users to update it.
+Whenever I code a plugin for my clients, and it's going to be hosted on Github, I use this boilerplate to build a plugin that will update via the built-in update system inside WordPress. Then, anytime I publish a new release to the Github repo for the plugin, this plugin will alert WordPress users to update it.
 
 ## Installation ##
 
@@ -20,5 +20,8 @@ Whenever I code a plugin for my clients, and it's going to be hosted on Github, 
 
 ## Changelog ##
 
-### 1.0 ###
+### 1.0.1 ###
+* Adding namespacing.
+
+### 1.0.0 ###
 * Initial release.
