@@ -11,3 +11,11 @@
  *
  * @package         Wpplugin_Update_From_Github
  */
+
+// Initialize Plugin Updates
+require_once ( plugin_dir_path( __FILE__ ) . 'lib/classes/plugin-updater.php' );
+if( is_admin() ){
+    add_action( 'init', function(){
+        new CxpGitHubPluginUpdater( __FILE__, 'mwender', 'wpplugin-update-from-github' );
+    } );
+}
