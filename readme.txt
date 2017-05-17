@@ -1,9 +1,9 @@
-=== Update from Github ===
+=== WordPress Plugin with GitHub Updates ===
 Contributors: thewebist
 Tags: github
 Requires at least: 3.7
 Tested up to: 4.7.5
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,6 +19,12 @@ Whenever I code a plugin for my clients, and it's going to be hosted on Github, 
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Changelog ==
+
+= 1.0.2 =
+* Updating plugin's name.
+* Removing namespacing.
+* Adding `GITHUB_ACCESS_TOKEN`.
+* Setting plugin name in WordPress update overlay.
 
 = 1.0.1 =
 * Adding namespacing.

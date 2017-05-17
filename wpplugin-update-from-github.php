@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     Update from Github
+ * Plugin Name:     WordPress Plugin with GitHub Updates
  * Plugin URI:      https://github.com/mwender/wpplugin-update-from-github
  * Description:     A WordPress starter plugin with built-in updating from Github
  * Author:          Michael Wender
@@ -16,6 +16,11 @@
 require_once ( plugin_dir_path( __FILE__ ) . 'lib/classes/plugin-updater.php' );
 if( is_admin() ){
     add_action( 'init', function(){
-        new \UpdateFromGithub\updater\GitHub_Plugin_Updater( __FILE__, 'mwender', 'wpplugin-update-from-github' );
+        // If you're experiencing GitHub API rate limits while testing
+        // plugin updates, create a `Personal access token` under your
+        // GitHub profile's `Developer Settings`. Then add
+        // `define( 'GITHUB_ACCESS_TOKEN', your_access_token );` to
+        // your site's `wp-config.php`.
+        new GitHub_Plugin_Updater( __FILE__, 'mwender', 'wpplugin-update-from-github', GITHUB_ACCESS_TOKEN );
     } );
 }

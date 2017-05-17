@@ -1,5 +1,4 @@
 <?php
-namespace UpdateFromGithub\updater;
 
 class GitHub_Plugin_Updater {
 
@@ -137,6 +136,7 @@ class GitHub_Plugin_Updater {
         $response->last_updated = $this->githubAPIResult->published_at;
         $response->slug = $this->slug;
         $response->plugin_name  = $this->pluginData["Name"];
+        $response->name  = $this->pluginData["Name"];
         $response->version = $this->githubAPIResult->tag_name;
         $response->author = $this->pluginData["AuthorName"];
         $response->homepage = $this->pluginData["PluginURI"];
@@ -160,8 +160,8 @@ class GitHub_Plugin_Updater {
         // Create tabs in the lightbox
         $response->sections = array(
           'Description'   => $this->pluginData["Description"],
-          'changelog'   => class_exists( "\\UpdateFromGithub\\parsedown\\Parsedown" )
-            ? \UpdateFromGithub\parsedown\Parsedown::instance()->parse( $this->githubAPIResult->body )
+          'changelog'   => class_exists( "Parsedown" )
+            ? Parsedown::instance()->parse( $this->githubAPIResult->body )
             : $this->githubAPIResult->body
         );
 
