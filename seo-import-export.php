@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin Name:     WordPress Plugin with GitHub Updates
- * Plugin URI:      https://github.com/mwender/wpplugin-update-from-github
- * Description:     A WordPress starter plugin with built-in updating from Github
+ * Plugin Name:     SEO Import/Export
+ * Plugin URI:      https://github.com/mwender/seo-import-export
+ * Description:     Provides WP-CLI commands for importing/exporting SEO meta data for pages and posts.
  * Author:          Michael Wender
  * Author URI:      https://mwender.com
- * Text Domain:     wpplugin-update-from-github
+ * Text Domain:     seo-import-export
  * Domain Path:     /languages
- * Version:         1.0.2
+ * Version:         1.0.0
  *
- * @package         Wpplugin_Update_From_Github
+ * @package         seo_import_export
  */
 
 // Initialize Plugin Updates
@@ -21,6 +21,6 @@ if( is_admin() ){
         // GitHub profile's `Developer Settings`. Then add
         // `define( 'GITHUB_ACCESS_TOKEN', your_access_token );` to
         // your site's `wp-config.php`.
-        new GitHub_Plugin_Updater( __FILE__, 'mwender', 'wpplugin-update-from-github', GITHUB_ACCESS_TOKEN );
+        new GitHub_Plugin_Updater( __FILE__, 'mwender', 'seo-import-export', GITHUB_ACCESS_TOKEN );
     } );
 }
