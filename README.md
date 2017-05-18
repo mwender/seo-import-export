@@ -3,7 +3,7 @@
 **Tags:** seo, import, export  
 **Requires at least:** 3.7  
 **Tested up to:** 4.7.5  
-**Stable tag:** 1.0.0  
+**Stable tag:** 1.0.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -24,6 +24,9 @@ Currently this plugin works with [Yoast SEO](https://wordpress.org/plugins/wordp
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 ## Changelog ##
+
+### 1.0.1 ###
+* Adding check for file write permissions to `wp seo export`.
 
 ### 1.0.0 ###
 * Initial release.
