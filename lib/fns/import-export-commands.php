@@ -73,6 +73,8 @@ class SEO_Command extends \WP_CLI_Command
 
         // Write the JSON to a file
         $fp = fopen( trailingslashit( $upload_dir['basedir'] ) . $filename, 'w' );
+        if( ! $fp )
+            \WP_CLI::error( 'Unable to write to ' . trailingslashit( $upload_dir['basedir'] ) . $filename . '. Do you have write permissions?' );
         fwrite( $fp, $seo_json_export );
         fclose( $fp );
         \WP_CLI::success( 'SEO data written to ' . trailingslashit( $upload_dir['basedir'] ) . $filename );
