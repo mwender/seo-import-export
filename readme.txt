@@ -11,7 +11,12 @@ Provides WP-CLI commands for importing and exporting page/post SEO meta data.
 
 == Description ==
 
-Longer description will go here.
+This plugin provides a `wp seo` command with two subcommands:
+
+- `wp seo export` - exports your page and post SEO title and meta description data to a JSON file.
+- `wp seo import <filename>` - imports your SEO data
+
+Currently this plugin works with [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/).
 
 == Installation ==
 
