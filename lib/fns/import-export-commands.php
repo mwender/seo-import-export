@@ -81,6 +81,75 @@ class SEO_Command extends \WP_CLI_Command
     }
 
     /**
+     * Inserts the default description into the Yoast SEO meta description field.
+     *
+     * ## EXAMPLES
+     *
+     * wp seo filldesc
+     *
+     * @subcommand filldesc
+     */
+    function filldesc( $args, $assoc_args )
+    {
+        $totals = array();
+        $post_types = ['post','page'];
+        foreach ( $post_types as $type ) {
+            $args = [
+                'post_type' => $type,
+                'numberposts' => -1
+            ];
+            \WP_CLI::log( str_repeat( '-', 80 ) . "\n" . 'Analyzing ' . ucfirst( $type ) . 's' . "\n" . str_repeat( '-', 80 ) );
+            $posts = \get_posts( $args );
+            if( $posts ){
+                $count = 0;
+                foreach ( $posts as $post ) {
+                    $meta_desc = \get_post_meta( $post->ID, '_yoast_wpseo_metadesc', true );
+                    if( empty( $meta_desc ) ){
+                        \WP_CLI::log( ucfirst( $type ) . ' (#' . $post->ID . '): `' . get_the_title( $post->ID ) . '`');
+                        // Get the post's excerpt
+                        if ( $post->post_excerpt !== '' ) {
+                            $excerpt = strip_tags( $post->post_excerpt );
+                        }
+                        elseif ( $post->post_content !== '' ) {
+                            $excerpt = strip_shortcodes( $post->post_content );
+                        }
+                        // Remove Visual Composer Shortcodes
+                        $patterns = "/\[[\/]?vc_[^\]]*\]/";
+                        $replacements = "";
+                        $excerpt = preg_replace( $patterns, $replacements, $excerpt );
+                        //$excerpt = SEO_Command::remove_vc_from_excerpt( $excerpt );
+
+                        $excerpt = strip_tags( $excerpt );
+                        $excerpt = trim( $excerpt );
+                        $excerpt = str_replace( "\n", ' ', $excerpt );
+
+                        // Remove tabs and newlines plus all other non-printable chars
+                        $excerpt = preg_replace('/[\x00-\x1F\x7F]/u', '', $excerpt);
+
+                        $excerpt = substr( $excerpt, 0, 160 );
+
+                        if( ! empty( $excerpt ) ){
+                            \WP_CLI::log( 'Generated excerpt: ' . $excerpt );
+                            $success = update_post_meta( $post->ID, '_yoast_wpseo_metadesc', $excerpt );
+                            if( true == $success )
+                                \WP_CLI::success('Updated ' . ucfirst( $type ) . ' #' . $post->ID );
+                        }
+                        $count++;
+                    }
+                }
+                $totals[$type] = $count;
+            }
+        }
+        if( 0 < count( $totals ) ){
+            foreach( $totals as $type => $count ){
+                \WP_CLI::success( $count . ' ' . $type . 's updated with default descriptions.');
+            }
+        } else {
+            \WP_CLI::log( 'No posts/pages found with empty Yoast Meta Description fields.' );
+        }
+    }
+
+    /**
      * Imports SEO meta data to posts and pages.
      *
      * ## OPTIONS

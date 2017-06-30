@@ -13,7 +13,8 @@ Provides WP-CLI commands for importing and exporting page/post SEO meta data.
 
 This plugin provides a `wp seo` command with two subcommands:
 
-- `wp seo export` - exports your page and post SEO title and meta description data to a JSON file.
+- `wp seo export` - exports your page and post SEO title and meta description data to a JSON file
+- `wp seo filldesc` - updates the Yoast meta description custom field with the post's or page's default excerpt
 - `wp seo import <filename>` - imports your SEO data
 
 Currently this plugin works with [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/).
@@ -24,6 +25,10 @@ Currently this plugin works with [Yoast SEO](https://wordpress.org/plugins/wordp
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 ## Changelog ##
+
+### 1.1.0 ###
+
+* Adding `wp seo filldesc`.
 
 ### 1.0.1 ###
 * Adding check for file write permissions to `wp seo export`.
