@@ -7,7 +7,7 @@
  * Author URI:      https://mwender.com
  * Text Domain:     seo-import-export
  * Domain Path:     /languages
- * Version:         1.1.0
+ * Version:         1.1.1
  *
  * @package         seo_import_export
  */

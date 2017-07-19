@@ -186,8 +186,11 @@ class SEO_Command extends \WP_CLI_Command
                 continue;
             }
 
-            update_post_meta( $post->ID, '_yoast_wpseo_title', $post_data->seo_title );
-            update_post_meta( $post->ID, '_yoast_wpseo_metadesc', $post_data->seo_desc );
+            if( ! empty( $post_data->seo_title ) )
+                update_post_meta( $post->ID, '_yoast_wpseo_title', $post_data->seo_title );
+            if( ! empty( $post_data->seo_desc ) )
+                update_post_meta( $post->ID, '_yoast_wpseo_metadesc', $post_data->seo_desc );
+
             \WP_CLI::success( 'Updated \'' . $post_data->post_title . '\', ID: ' . $post->ID . ' (Original ID: ' . $post_data->ID . ').' );
             $count++;
         }

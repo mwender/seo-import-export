@@ -3,7 +3,7 @@
 **Tags:** seo, import, export  
 **Requires at least:** 3.7  
 **Tested up to:** 4.7.5  
-**Stable tag:** 1.0.1  
+**Stable tag:** 1.1.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -26,8 +26,10 @@ Currently this plugin works with [Yoast SEO](https://wordpress.org/plugins/wordp
 
 ## Changelog ##
 
-### 1.1.0 ###
+### 1.1.1 ###
+* Don't run `update_post_meta()` on `wp seo import` for empty title/desc values.
 
+### 1.1.0 ###
 * Adding `wp seo filldesc`.
 
 ### 1.0.1 ###
